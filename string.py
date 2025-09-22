@@ -79,5 +79,3 @@ def valid_ana(s,t):
     # return s1 == s2
 
 print(valid_ana("anagram", "nagaram"))
-
-
