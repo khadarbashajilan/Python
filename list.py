@@ -36,3 +36,33 @@ print(arr1)
 mer_sortArr(arr1, arr2, a, b)
 print(arr1)
 
+# Move Zeroes :
+
+def move_z(nums):
+
+    # Two Pinter Technique (left and right):
+
+    left = 0
+    
+    for right in range(len(nums)):
+        if nums[right] != 0:
+            nums[right], nums[left] = nums[left], nums[right]
+            left +=1
+
+    # Brute Force :
+
+    # idx = 0
+    # for i in range(len(numbs)):
+    #     if numbs[i] != 0:
+    #         numbs[idx] = numbs[i]
+    #         idx += 1
+    
+    # while idx < len(numbs):
+    #     numbs[idx] = 0
+    #     idx += 1
+
+
+numbs = [0,1,0,3,12]
+print(numbs)
+move_z(numbs)
+print(numbs)
