@@ -42,11 +42,10 @@ def Uniq_ch(s):
     for ch in s:
         d[ch] = d.get(ch, 0)+1
     
-    minV = min(d.values())
-
-    for k in d.keys():
-        if d[k] == minV:
-            return -1 if minV > 1 else s.index(k)
+    for i, ch in enumerate(s):
+        if d[ch] == 1:
+            return i
+    return -1
 
 print(Uniq_ch(s))
 

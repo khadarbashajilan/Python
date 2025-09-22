@@ -17,6 +17,7 @@ print(fizzbuzz(15))
 
 # Palindrome Number – Check if a given integer is a palindrome.
 
+
 def pali(n):
     rev = 0
     x = n
@@ -56,8 +57,7 @@ print(sum_all(123))
 
 def reverse_int(n):
     sign = 1 if n > 0 else -1
-    n = abs(n)
-    x = n
+    x = n = abs(n)
     rev = 0
     while x>0 :
         ld = x%10
