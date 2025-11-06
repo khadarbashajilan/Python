@@ -36,6 +36,14 @@ class LinkedList:
             curr = curr.next  # Move to the next node
         print("None")       # Print None to indicate end of list
 
+    def length_l(self):
+        curr = self.head
+        count = 0
+        while curr:
+            count += 1
+            curr = curr.next
+        return count
+
 # Create a linked list instance
 li = LinkedList()
 
@@ -46,3 +54,11 @@ li.append(30)  # List becomes: 10 -> 20 -> 30 -> None
 
 # Print the entire linked list
 li.print_l()   # Output: 10 -> 20 -> 30 -> None
+print(li.length_l())
+
+li.append(40)
+li.append(50)
+li.print_l()
+print(li.length_l())
+
+
