@@ -44,6 +44,25 @@ class LinkedList:
             curr = curr.next
         return count
 
+    def element_at(self, idx):
+        n = li.length_l()
+        if not self.head :
+            print("No elements exist")
+            return
+        elif idx < 0 or idx > n:
+            print("Not in range of indices")
+            return
+        curr = self.head
+        count = 0
+        while curr:
+            if count == idx:
+                print(f"at index {idx} is {curr.data}")
+                return
+            curr = curr.next
+            count += 1
+
+        print("Not Found")
+        return 
 # Create a linked list instance
 li = LinkedList()
 
@@ -61,4 +80,6 @@ li.append(50)
 li.print_l()
 print(li.length_l())
 
-
+li.element_at(-2)
+li.element_at(50)
+li.element_at(4)
