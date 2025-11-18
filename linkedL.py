@@ -11,6 +11,15 @@ class LinkedList:
         # Initialize an empty linked list
         self.head = None    # Head pointer points to the first node (initially None for empty list)
 
+    def append(self, data):
+        # Add a new node with the given data to the end of the list
+        new_node = Node(data)  # Create a new node with the given data
+
+        # If the list is empty, make the new node the head
+        if not self.head:
+            self.head = new_node  # New node becomes the first node
+            return
+        
     def add_beg(self, data):
         # Add a new node with the given data to the beginning of the list
         new_node = Node(data)  # Create a new node with the given data
@@ -21,14 +30,6 @@ class LinkedList:
             self.head = new_node
             new_node.next = curr
 
-    def append(self, data):
-        # Add a new node with the given data to the end of the list
-        new_node = Node(data)  # Create a new node with the given data
-
-        # If the list is empty, make the new node the head
-        if not self.head:
-            self.head = new_node  # New node becomes the first node
-            return
 
         # If list is not empty, traverse to the end
         curr = self.head    # Start from the head node
