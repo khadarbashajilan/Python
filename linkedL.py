@@ -20,6 +20,12 @@ class LinkedList:
             self.head = new_node  # New node becomes the first node
             return
         
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+        return
+        
     def add_beg(self, data):
         # Add a new node with the given data to the beginning of the list
         new_node = Node(data)  # Create a new node with the given data
@@ -129,21 +135,4 @@ li.append(30)  # List becomes: 10 -> 20 -> 30 -> None
 
 # Print the entire linked list
 li.print_l()   # Output: 10 -> 20 -> 30 -> None
-print(li.length_l())
 
-li.append(40)
-li.append(50)
-li.print_l()
-print(li.length_l())
-
-li.element_at(-2)
-li.element_at(50)
-li.element_at(4)
-
-li.remove_n(20)
-li.print_l()
-li.add_beg(100)
-li.print_l()
-li.middle_ele()
-li.reverse()
-li.print_l()
