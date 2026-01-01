@@ -19,6 +19,9 @@ class Stack:
 
     def is_empty(self):
         return len(self.stack) == 0
+
+    def __str__(self):
+        return str(self.stack)
     
 # Test Case 1: Basic push and pop operations
 print("\nTest Case 1: Basic push and pop operations")
@@ -26,6 +29,7 @@ s = Stack()
 s.push(1)
 s.push(2)
 s.push(3)
+print(s)
 # Expected output: 3 (peek), 3 (pop), 2 (pop), 1 (pop)
 s.peek()  # Should print 3
 s.pop()   # Should print 3
