@@ -1,7 +1,9 @@
 A = [-3, 2, 4, -4, 0, 3, 2, 6, 7, 8]
 
 def bubble_sort(arr):
-    # Initialize the length of the array
+    """
+    Bubble Sort: Repeatedly swaps adjacent elements if they are in the wrong order.
+    """
     n = len(arr)
     # Flag to check if any swaps were made in a pass
     flag = True
@@ -9,18 +11,18 @@ def bubble_sort(arr):
     # Continue sorting until no swaps are made in a pass
     while flag:
         flag = False
-        # Iterate through the array
         for i in range(1, n):
             # Compare adjacent elements
             if arr[i-1] > arr[i]:
                 # Swap elements if they are in the wrong order
                 arr[i-1], arr[i] = arr[i], arr[i-1]
                 flag = True
-    # Return the sorted array
     return arr
 
 def insertion_sort(arr):
-    # Initialize the length of the array
+    """
+    Insertion Sort: Builds the final sorted array one item at a time by inserting each element into its correct position.
+    """
     n = len(arr)
     # Iterate through the array starting from the second element
     for i in range(1, n):
@@ -33,13 +35,13 @@ def insertion_sort(arr):
             else:
                 # If the current element is in the correct position, break the inner loop
                 break
-    # Return the sorted array
     return arr
 
 def selection_sort(arr):
-    # Initialize the length of the array
+    """
+    Selection Sort: Repeatedly finds the minimum element from the unsorted part and puts it at the beginning.
+    """
     n = len(arr)
-    # Iterate through the array
     for i in range(0, n):
         # Assume the current index is the minimum
         min_idx = i
@@ -50,10 +52,12 @@ def selection_sort(arr):
                 min_idx = j
         # Swap the found minimum element with the first element of the unsorted part
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
-    # Return the sorted array
     return arr
 
 def merge_sort(arr):
+    """
+    Merge Sort: Divides the array into two halves, sorts them recursively, and then merges the sorted halves.
+    """
     # Base case: if the array has only one element, it is already sorted
     n = len(arr)
     if n == 1:
@@ -99,7 +103,3 @@ def merge_sort(arr):
 
     # Return the sorted array
     return sorted_arr
-
-
-
-
