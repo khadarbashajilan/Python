@@ -15,25 +15,26 @@ class BinaryTree:
             self.root = new_node
             return
 
-        dq = deque([self.root])
+        queue = deque([self.root])
 
-        while dq:
-            popped = dq.popleft()
+        while queue:
+            popped = queue.popleft()
 
             if popped.left is None:
                 popped.left = new_node
                 return
             else:
-                dq.append(popped.left)
+                queue.append(popped.left)
             
             if popped.right is None:
                 popped.right = new_node
                 return
             else:
-                dq.append(popped.right)
+                queue.append(popped.right)
 
 
     def preorder(self):
+        """ DFS """
         """"Node -> Left -> Right"""
         if not self.root:
             return []
@@ -101,23 +102,88 @@ class BinaryTree:
 
         return result   
 
+    def postorder(self):
+        """Left -> Right -> Node"""
+
+        if not self.root:
+            return []
+
+        stack1 = [self.root]
+        stack2 = []
+        result = []
+
+        while  stack1:
+            curr = stack1.pop()
+            stack2.append(curr)
+
+            if curr.left:
+                stack1.append(curr)
+            
+            if curr.right:
+                stack1.append(curr)
+        
+        while stack2:
+            result.append(stack2.pop().value)
+        return result
+    
+    # Recusrive appraoch:
+    def postorder_rec(self):
+        if not self.root:
+            return []
+        
+        result = []
+
+        result += self.postorder_rec(self.root.left)
+        result += self.postorder_rec(self.root.right)
+        result.append(self.root.value)
+        
+        return result
+    
+
+    def level_order(self):
+        """ BFS """
+        if not self.root:
+            return []
+        
+        queue = deque([self.root])
+        result = []
+
+        while queue:
+            level_size = len(queue)
+            level = []
+
+            for _ in range(level_size):
+                node = queue.popleft()
+
+                if node:
+                    level.append(node.value)
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+            
+            result.append(level)
+
+        return result
 
     def __str__(self):
         if not self.root:
             return "[]"
 
-        dq = deque([self.root])
+        queue = deque([self.root])
         result = []
 
-        while dq:
-            curr = dq.popleft()
+        while queue:
+            curr = queue.popleft()
             result.append(str(curr.value))
             if curr.left:
-                dq.append(curr.left)
+                queue.append(curr.left)
             if curr.right:
-                dq.append(curr.right)
+                queue.append(curr.right)
 
         return "[" + ", ".join(result) + "]"
+
+
 
 ex = BinaryTree()
 ex.insert(1)
@@ -130,3 +196,4 @@ ex.insert(7)
 print(ex)
 print(ex.preorder())
 print(ex.inorder())
+print(ex.level_order())
